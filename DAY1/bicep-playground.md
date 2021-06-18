@@ -1,6 +1,6 @@
 # Bicep Playground Experiments
 
-
+TODO : Make this public as we will refer to this document during the walkthough 
 
 ## Deploy Resource Group 
 
