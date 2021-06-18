@@ -2,6 +2,18 @@
 
 TODO : Make this public as we will refer to this document during the walkthough 
 
+- Use cloudshell (bash) - Bicep should be installed already, run bicep --version 
+- OR your own host terminal connect to the subscription you are targeting 
+
+> If you already have the latest version of Az CLI installed (v2.20.0 or later), the Bicep CLI will automatically be installed when a command that depends on it is executed.
+```
+az -v
+```
+> To install manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli
+
+
+
+
 ## Deploy Resource Group 
 
 [Microsoft Docs - Resource Group Template](https://docs.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups?tabs=json) </br>
