@@ -1,4 +1,4 @@
-# 
+# Part 1 - Bicep SandBox
 
 ## Intro
 
@@ -102,3 +102,42 @@ However, the Bicep file might need revisions to be optimal.
 
 Maybe here we can go through the VS code integration and Ryan could show how you can do this ? It would fit well after the first option of decompiling to create bicep templates easily 
 
+## Part 1 Q&R
+- **ASK RYAN** we never use modules, why ? 
+- Maybe mention the known limitations here 
+- Maybe Ryan can talk about some Bicep refactoring he did, why and how it turned out 
+- 
+
+# Part 2 - CI/CD Pipeline 
+
+# Intro 
+
+Now using scattered templates is fun but we have a lot more in store for you - dont close out of VS Code just yet. We want to take a look now at how we can use biceps for infrastructure as code in an Azure Devops pipeline for continuous development and integration. 
+
+## Set up 
+
+- Create new repo in devops
+- Clone/import the starter repo 
+- Using the agent pool we set up, run a basic job to test the connection
+
+## Bicep 
+
+- Basic structure used 
+- Why Bicep can be useful (Ryan reduced code by X for a client)
+
+## Resource Groups 
+
+- How we are creating multiple Resource Groups (for/loops) in CI/CD Pipeline
+- How we can do the same thing natively in Bicep. We won't be doing much of this because we are using loops in CI/CD, but we want them to know it's there.
+- Why do we have a azure cli Resource Group Check in bash in our tasks:  because without checking, the Resource Groups will take up to 45 seconds EACH to deploy as ARM will natively check against what we are trying to deploy using Bicep. If you have a ton of Resources to Deploy that don't change a lot, this will consume a stupid amount of time.
+- The following resource groups are created : {ADD RGs}
+
+## Keyvault 
+
+- Firewall rules strings/object 
+
+- Purging kv : if you are redeploying environments a lot, say as in a Development or Test Subscription, you want to automate the creation of finding deleted key vaults and purging them. However, if you are working in Stage and Production, you probably DO NOT want to automatically purge key vaults in case someone accidentally deleted a key vault that should have been left in place. + eventually add script to purge kv via automation to repo
+
+## Storage Accounts
+
+- **ASK RYAN** are we actually going to use them ? Maybe add locks to the template ? 
