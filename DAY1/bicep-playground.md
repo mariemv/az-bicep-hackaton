@@ -1,11 +1,6 @@
 # Bicep Playground Experiments
 
-TODO : Make this public as we will refer to this document during the walkthough 
 
-[Here is the official Bicep Documentation on Github](https://github.com/Azure/bicep) 
-[Here is the official Bicep Documentation on Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview)
-[Azure Bicep: Up, running, and authoring in 10min](https://www.youtube.com/watch?v=B1YIA3bs5u8)
-[
 
 ## Deploy Resource Group 
 
