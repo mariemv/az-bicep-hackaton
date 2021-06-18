@@ -4,7 +4,7 @@ TODO : Make this public as we will refer to this document during the walkthough
 
 ## Deploy Resource Group 
 
-[Microsoft Docs - Resource Group Template](https://docs.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups?tabs=json)
+[Microsoft Docs - Resource Group Template](https://docs.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups?tabs=json) </br>
 [Bicep Resource Group Playground Template](https://aka.ms/bicepdemo#eJxVj8FOwzAMhu95Ct9yytJOnCohcUDiMhCCvUCITIhom8h2Qdu0d5+7UgQHS/5/f5b9ew/3WPtyGHAUeA4UBhQkBlPnHig9qdMCC+UxwS3Y4evgPkL8dJRca3+wcNyV+Af6RhacqFS0xngP+0AJBV6jOmDkqhahME9vHClXyWVc8BfkMlFEeKAyVdjjUPsguknrYG0WwD7mSIXLu2zWVfb/EL7bNtvWNTeuaa0ePRmAUZN1a0LVfYlh/qFb4qgjIXF3Zc9adc5DkvHXO18A4epqVg==)
 
 
