@@ -9,7 +9,7 @@ TODO : Make this public as we will refer to this document during the walkthough
 ```
 az -v
 ```
-> To install manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli
+> To install manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
 
 
 
