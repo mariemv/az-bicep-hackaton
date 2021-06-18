@@ -62,13 +62,13 @@ az deployment sub create \
 
 ### Add Resource Tags 
 
-It would be best to add them when deploying, it's already in the template we get from the Microsoft docs. 
+It would be best to add them when deploying, it's already in the template we get from the Microsoft docs. **ASK RYAN**
 
 ## Storage Account(s)
 
 Deploy single storage account : 
 
-https://aka.ms/bicepdemo#eJyVUMtqAzEMvO9X6Ob2kGySQ6ELhQYKzaEPSEKvxfFqg4ljGckbWEr+vd5Xm0IvMdiWNaPRWHkOS2bdAFUgkVjvEbQxVPsIXh9RsqBZH0fsLaVSzNbv4QGUgizLc3jC4KgBwROydmBL9NGaFG0GxWWvKBmjUM0GR70BWA9pAfVqDZNQFadDcf6XKo+L2fx+MrubzOYqefjKoDNaXFpMOUdGR0u+gLHnM1Mdbm6nI5JIgSkgR4tSdEIAUodAHGUVY5At66qy5t27poDINXaUNB4U2VrkAtSKouqy6A03oe/YSwEcsNl0rYt//qUGkiCfrPl10K6do93lu5XXO4flhY12nX+iyjq8pqK/27PdB+sTUQ3OPhatNznUo2A/3wRrX2ouP1/WG9VVnr8BNxexow==
+[LINK](https://aka.ms/bicepdemo#eJyVUMtqAzEMvO9X6Ob2kGySQ6ELhQYKzaEPSEKvxfFqg4ljGckbWEr+vd5Xm0IvMdiWNaPRWHkOS2bdAFUgkVjvEbQxVPsIXh9RsqBZH0fsLaVSzNbv4QGUgizLc3jC4KgBwROydmBL9NGaFG0GxWWvKBmjUM0GR70BWA9pAfVqDZNQFadDcf6XKo+L2fx+MrubzOYqefjKoDNaXFpMOUdGR0u+gLHnM1Mdbm6nI5JIgSkgR4tSdEIAUodAHGUVY5At66qy5t27poDINXaUNB4U2VrkAtSKouqy6A03oe/YSwEcsNl0rYt//qUGkiCfrPl10K6do93lu5XXO4flhY12nX+iyjq8pqK/27PdB+sTUQ3OPhatNznUo2A/3wRrX2ouP1/WG9VVnr8BNxexow==)
 
 In this case we do not need the target scope parameter as we will specify the resource group in the deployment command. I will use the RG I just created and I suggest you do the same and use yours :
 
@@ -81,9 +81,9 @@ az deployment group create \
 
 When it comes to loops in Bicep there are several options. Bicep implemented native loops recently, we can do this as follows : 
 
-https://aka.ms/bicepdemo#eJyVkE1rwzAMhu/5Fbp5O7RpexgsMFhhsB72AW3ZZZThOsowdS0jO4Uw+t9n52MLZZcZYjvSq1ePnOewZJYNUAU+EMtPBKkU1TaAlUf0mZMsj0Nu2aU8yLboDt4zACFG2y7L8hwe0BlqwOMJWRrQJdqgVbxt+h6DUcboqWaFFx3WfdiDeNaKyVMVpn1xfgFzv5jNbyezm8lsLhJSRTy4vcQRQNtL/AK+Im2arxgrY8yQkkGTLWAAe2Sq3dX1dMhEkWNyyEFjbwTga+eIg1+F4PyWZVVp9WpNU0DgGltJfFX0fquRCxArCqKNolXcuK5jZwVwwGbTti7+GF70Io980uqXIK29of34P9nLvcFyhJHW+edWaYP/qejOtKfvoG0Uip7sbZHY/KEeDLv3jWlpS8nlx9N6I9rK8+4bdwLDQQ==
+[LINK](https://aka.ms/bicepdemo#eJyVkE1rwzAMhu/5Fbp5O7RpexgsMFhhsB72AW3ZZZThOsowdS0jO4Uw+t9n52MLZZcZYjvSq1ePnOewZJYNUAU+EMtPBKkU1TaAlUf0mZMsj0Nu2aU8yLboDt4zACFG2y7L8hwe0BlqwOMJWRrQJdqgVbxt+h6DUcboqWaFFx3WfdiDeNaKyVMVpn1xfgFzv5jNbyezm8lsLhJSRTy4vcQRQNtL/AK+Im2arxgrY8yQkkGTLWAAe2Sq3dX1dMhEkWNyyEFjbwTga+eIg1+F4PyWZVVp9WpNU0DgGltJfFX0fquRCxArCqKNolXcuK5jZwVwwGbTti7+GF70Io980uqXIK29of34P9nLvcFyhJHW+edWaYP/qejOtKfvoG0Uip7sbZHY/KEeDLv3jWlpS8nlx9N6I9rK8+4bdwLDQQ==)
 
-Now for the CI/CD integration we tend to use yaml loops for XY reason (ASK RYAN).
+Now for the CI/CD integration we tend to use yaml loops for XY reason **(ASK RYAN)**.
 
 ### Configure access to storage accounts 
 
