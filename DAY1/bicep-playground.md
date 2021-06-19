@@ -29,7 +29,7 @@ az deployment sub create \
 
 ## Deploy Storage Account(s)
 
-[Deploy Single Storage Account](https://aka.ms/bicepdemo#eJyVUMtqAzEMvO9X6Ob2kGySQ6ELhQYKzaEPSEKvxfFqg4ljGckbWEr+vd5Xm0IvMdiWNaPRWHkOS2bdAFUgkVjvEbQxVPsIXh9RsqBZH0fsLaVSzNbv4QGUgizLc3jC4KgBwROydmBL9NGaFG0GxWWvKBmjUM0GR70BWA9pAfVqDZNQFadDcf6XKo+L2fx+MrubzOYqefjKoDNaXFpMOUdGR0u+gLHnM1Mdbm6nI5JIgSkgR4tSdEIAUodAHGUVY5At66qy5t27poDINXaUNB4U2VrkAtSKouqy6A03oe/YSwEcsNl0rYt//qUGkiCfrPl10K6do93lu5XXO4flhY12nX+iyjq8pqK/27PdB+sTUQ3OPhatNznUo2A/3wRrX2ouP1/WG9VVnr8BNxexow==)
+[Deploy Single Storage Account](https://aka.ms/bicepdemo#eJyVUMtqwzAQvBv8D3tTe0ic5FCoodBCoTn0RRx6LYqyDiKKJHblgin598q23Call+5BWmZnZ0YqCqiCI7lDuFPKNTbAqyR5wIDEeea7HnhgPEc49qTtDm5ACMizPCsKuEdvXAuVPniDv+XyjJBdQwpHmTRYJZhBPGlFjl0dpmm5OKfy7WI2v57MriazuYjWn3kGYGOa8jRaBxqnZNDOljC6PpBr/MXldJx0LE/OIwWNXA5aANx47yjwMgTPa5J1rdWLNW0JgRocOFLFtLzWSCWIpQtigNEqav3gmtQA9thWvX/5x/PEyGKkD61OYnS1MW5zBnQWcmNwexqmq+NPW2uD/1xKTX/1x17byBYp5Nuij8n75lt3+PJIkHYrafv+uKpE2j5+AYkVrNk=)
 
 ```
 az deployment group create \
@@ -47,7 +47,7 @@ az deployment group create \
 --resource-group {NAME_OF_RG_ABOVE} 
 ```
 
-[Limit Access to Storage Accounts](TODO)
+[Limit Access to Storage Accounts](https://aka.ms/bicepdemo#eJyVUsFq3DAQvS/sP8xN7SH2eklLYijUEGgOSQq7oZewBFkeF3UVSYykLW7Zf6+8llJn6aU6WMOb9zRPTy5LaIj4AKYH5w3x7whcCBO0B81f0C0XlhN/yc1m6jngJ9UneFouABiw8223XGSptJugEEz7A4WPkt8jCeDAVcAa2NVlUVUfivXqqqiuo/IY26O4LOEGrTIDODwgcQWyQ+2liNU2Wc12lgtCZwIJPDO6SbADdi8FGWd6XyR1eXanz+tVdX2x+nixqth4s95QPu0hRgFSn6dQT3cZg6rn1BFURnAvja4hW/tCJth374vcGVmWjEXyEvNZAC5Ya8i7W++teyTe91J81WqowVPAiROfCJ17lEgxwFvj2QSjFjTYaWo6DWCPw/Y0v/5HBiyzHNJBipmNcbXKtG+AcQRvFXZzM+M6/i17qfA/RalIm0b/09C+EWruph0sdxFgza9AuE12X/1PP1nsP80GT2AGdgC57LDnQflGTFmxG9QDm5k4ffZSR8ssJfVtfSK4fXg1Nb17JHDdceqe7zZbltTH3R+6SPaF) **ASK RYAN IF THIS IS WHAT HE MEANT**
 
 ```
 az deployment group create \
