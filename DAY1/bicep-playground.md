@@ -1,29 +1,43 @@
 # Bicep Playground Experiments
 
 TODO : Make this public as we will refer to this document during the walkthough 
+## Setting up : 
 
-- Use cloudshell (bash) - Bicep should be installed already, run bicep --version 
+To follow along, you will need : </br>
+- A tab with this document open
+- Another with your Azure Subscription 
+
+To deploy to you Subscription you will need : </br>
+- The azure portal integrsted cloudshell promp (set to bash) - Bicep should be ready to go
 - OR your own host terminal connect to the subscription you are targeting 
 
 > If you already have the latest version of Az CLI installed (v2.20.0 or later), the Bicep CLI will automatically be installed when a command that depends on it is executed.
 ```
 az -v
 ```
-> You can upgrade your Azure CLI to the latest version to use bicep on linux. To install manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
+> You can upgrade your Azure CLI to the latest version to use bicep on linux. 
+> To install bicep manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
 
 
 
 
 ## Deploy Resource Group 
 
+[Link to the Azure Bicep Playground](https://bicepdemo.z22.web.core.windows.net/) </br>
+This playground offers a preconfigured environment to experiment with bicep template and ARM.
+</br>
+
 [Microsoft Docs - Resource Group Template](https://docs.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups?tabs=json) </br>
-[Bicep Resource Group Playground Template](https://aka.ms/bicepdemo#eJxVj8FOwzAMhu95Ct9yytJOnCohcUDiMhCCvUCITIhom8h2Qdu0d5+7UgQHS/5/f5b9ew/3WPtyGHAUeA4UBhQkBlPnHig9qdMCC+UxwS3Y4evgPkL8dJRca3+wcNyV+Af6RhacqFS0xngP+0AJBV6jOmDkqhahME9vHClXyWVc8BfkMlFEeKAyVdjjUPsguknrYG0WwD7mSIXLu2zWVfb/EL7bNtvWNTeuaa0ePRmAUZN1a0LVfYlh/qFb4qgjIXF3Zc9adc5DkvHXO18A4epqVg==)
+This is to show that Microsoft Docs now contain a tab for bicep template next to the ARM template one for most resources. 
+</br>
 
+[Bicep Resource Group Playground Template](https://aka.ms/bicepdemo#eJxVT81qwzAMvgfyDrr5lDkpPQUGOwx2Wcto+wKe0YIhiYykHNrRd6/dYGguQt+frc9a+MQ40nXCWeHHsZtQkQXqKmYAPBwT1YEoh3mAdzCmSO72TX4r1JW1cHE8oMLZU8T0jj7hipJLll/xHKIGmkvihEILe4QvpiXCBac4Os1hLkpZVoc5BM8k9KdvJSt2Y5GPXbvrmnbftJ1J//7XFcCcqvSlUiZG8i4f0q9lMqVukH613/OInA5nDfjC3h9KrWJC)
 
+Copy this template into your host, to deploy, run : 
 ```
 az deployment sub create \
 --template-file "{PATH_TO_FILE}" \
---name "{DEPLOYMENT_NAME}-$RANDOM" \
+--name "deploy-rg-$RANDOM" \
 --location "AZURE_LOCATION" 
 ```
 
@@ -57,7 +71,8 @@ az deployment group create \
 ```
 
 ## Deploy Virtual Machine 
-- Walkthough outside of the Playground with VS code extension 
+Walkthough outside of the Playground with VS code extension -  
+
 
 ## Decompile
 
