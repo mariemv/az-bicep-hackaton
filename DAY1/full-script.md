@@ -1,27 +1,28 @@
 # Part 1 - Bicep SandBox
 
+## Presentations etc 
+
+Hello eveyone and welcome to the first day of this Azure Bicep hackaton ! My name is Marie Yerna, I work with Innofactor Norway and I mostly focus on Kubernetes in Azure and Infrastructure as Code, I am very happy to be here with you today with my colleague Ryan, Ryan maybe you can say a few words about yourself ? (LET RYAN SPEAK). Thank you Ryan ! I know this will feel a little like we are back to school, but in an attempt to make this hackaton as interactive as possible despite the current circumstances, we thought it would be nice to know a little more about you too so either in turn or someone introducing his team if we have several teams, can you tell us a few words about who you are and what your experience with Infrastructre as Code is : are you using or have you already use ARM, Terraform or Rancher? Are you working with Azure DevOps CI/CD Pipelines or something else? Have you ever used bicep ? Anything relevant to today's topic in IaC really. (EITHER ASK KEN ROBERT OR VELTE TO HELP - LET PEOPLE TALK). Thank you very much everyone ! I see we have a rather diverse team but i am convinced that all of you can bring something home today. 
+
 ## Intro
 
-ARM templates are complex, very verbose and complicated to write and read. It can get very frustrating to try to use them for something more complex than a basic resource deployment, it certainly allows customization but is so cryptic in its form that most people would rather not go there. ARM templates sure are efficient, but they are long and tedious and this is where Bicep comes into play. </br>
+So for those of you who are familiar with ARM templates, you surely know that they are very verbose and complicated to write and read - let alone edit. It can get very frustrating to try to use them for something more complex than a basic resource deployment. ARM templates sure are efficient, but they are long and tedious and this is where Bicep comes into play. </br>
 
-Everything that can be done with ARM can now be done in Bicep. Well, everything apart from some known limitations that are continuously being worked on by Microsoft (ADD SMTH AS TO NOW ITS PROFICIENT ENOUGH THAT WE CAN RECOMMAND IT TO MOST CUSTOMERS). We will come back to this later, but for now as the difference is rather striking, let me show you a simple example of an ARM/Bicep comparison : browse to [ https://bicepdemo.z22.web.core.windows.net/ ] and show some examples (hello world, resource locks, click on others at random).  </br>
+Good news is : almost everything that can be done with ARM can now be done with Bicep. There still are some limitations, we will of course come back to this later but for now as the difference is rather striking, let me show something : i will share my screen with you for a second (SHARE SCREEN). Can you all see my screen ? So, this "playground" shows us what one and the same deployment template looks like in both ARM syntax on the right, and bicep on the left. We can browse through some examples (hello world, resource locks, click on others at random). You will notice that Bicep is much more straightforward and reduces the amount of lines of code by about half of what ARM templates offer. I think that these couple of exemple easily replace a lenghty introduction, don't they Ryan ? (LET RYAN ADD STUFF)  </br>
 
 ## Today's planning : 
 
-Today the session will be split in two main parts : first we are going to use this bicep/arm sandbox to get started with Azure Bicep and get used to its syntax, we will deploy a couple of resource in Azure using the templates we will generate here, and answer all of your questions as we go. For those of you familiar with Bicep already this might be a bit redundant but please bear with us for a moment !</br> 
+So what are we going to do today ? Today's session will be split in two main parts : first we are going to use the bicep sandbox I just showed you to get started with Azure Bicep and get used to its syntax, we will deploy a couple of resources in Azure using the templates we will generate here in this sandbox - you'll get a link in a second- and of course we will answer all of your questions as we go. For those of you familiar with Bicep or even ARM already this part might be a bit redundant but please bear with us for a moment ! At the end of this first part, we will ask you to deploy a resource from scratch using the tools we will provide you in a minute. </br> 
 
-After these firsts experiences and deployments, we will get started on using Azure Bicep in a CI/CD pipeline and show you the structure we recommend you to use when working on your Bicep projects. We will deploy Azure Resources with that pipeline (Keyvaults, VNet, a VM to interact with the cluster...) and depending on how this afternoon goes with might start with AKS - else AKS integration with Bicep will be our main topic on Friday. </br> 
+For the second part of today's session, we will get started on using Azure Bicep in a CI/CD DevOps pipeline and show you the structure we recommend you to use when working on your Bicep projects. We will deploy Azure Resources with that pipeline (Keyvaults, VNet, a VM to interact with the cluster, storage accounts and more...) and depending on how this afternoon goes with might start with AKS - else AKS integration with Bicep will be our main topic on Friday. </br> 
 
-Let's take a couple of minutes to get ready to go: I will send you the link to the sandbox, please open it and keep another tab open with the Azure Portal you will work with and either a cloudshell prompt set to bash open or your own terminal connected to the subscription you want to target. I will use a VM connected to the subscription as it will be easier to read on screen. Cloudshell is always running the lastest version of Azure CLI and the Bicep CLI should be ready to go, </br> 
+Let's take a couple of minutes to get ready to go: I will send you the link to a github document called "bicep playground" that contains a couple of links here in the chat, please open it and keep another tab open with the Azure Portal you will work with and either a cloudshell prompt set to bash open or your own terminal connected to the subscription you want to target. I will use a VM connected to the subscription as it will be easier to read on screen. Cloudshell is always running the lastest version of Azure CLI and bicep should be ready to go, however if you are using another terminal you might need to update you CLI before we get started. The commands to check your installations are also in the doc. </br> 
 
 While all those who want to follow up with us are getting ready, do you have any first impressions you want to share or questions about the planning ? Ryan do you want to add something ? </br> 
 
 ## Deploy a resource group 
 
-Ok now that we are all set, let's start with the basic : we can create a simple resource group. I know already that this is not in the 101 list here, but it gives me a chance to show you something: if you go to the Microsoft official template reference documentation, next to the ARM template tab, you can now have access to the corresponding bicep template as you can see on the following link : </br> 
-
-https://docs.microsoft.com/en-us/azure/templates/microsoft.resources/resourcegroups?tabs=json
-
+Ok now that we are hopefully all set, let's start deploying ! I suggest you to try and follow along and let us know if you encounter any issue or if you have any remark. We can start with the basics and create a simple resource group. I know already that this is not in the playground 101 templates list here, but it gives me a chance to show you something: if you go to the Microsoft official template reference documentation, next to the ARM template tab, you can now have access to the corresponding bicep template as you can see on the first link here (OPEN MICROSOFT LINK AND SHOW THE TAB) 
 </br> 
 
 We can copy the template into our sandbox and see how we can tune it. First, we can see that all string values must be enclosed between single quotes, double quotes will not work here (show that it fails). After setting our values, we are still missing something, and that is the target scope that we have in ARM schemas (ADD TARGET SCOPE). We need to add this targetscope for Resource Groups because unless specified otherwise, Bicep will assume that templates are to be deployed at a resource group scope. This will not work here for obvious reasons. 
@@ -83,7 +84,7 @@ When it comes to loops in Bicep there are several options. Bicep implemented nat
 
 [LINK](https://aka.ms/bicepdemo#eJyVkE1rwzAMhu/5Fbp5O7RpexgsMFhhsB72AW3ZZZThOsowdS0jO4Uw+t9n52MLZZcZYjvSq1ePnOewZJYNUAU+EMtPBKkU1TaAlUf0mZMsj0Nu2aU8yLboDt4zACFG2y7L8hwe0BlqwOMJWRrQJdqgVbxt+h6DUcboqWaFFx3WfdiDeNaKyVMVpn1xfgFzv5jNbyezm8lsLhJSRTy4vcQRQNtL/AK+Im2arxgrY8yQkkGTLWAAe2Sq3dX1dMhEkWNyyEFjbwTga+eIg1+F4PyWZVVp9WpNU0DgGltJfFX0fquRCxArCqKNolXcuK5jZwVwwGbTti7+GF70Io980uqXIK29of34P9nLvcFyhJHW+edWaYP/qejOtKfvoG0Uip7sbZHY/KEeDLv3jWlpS8nlx9N6I9rK8+4bdwLDQQ==)
 
-Now for the CI/CD integration we tend to use yaml loops for XY reason **(ASK RYAN)**.
+Now depending on who you are working with and what their requirements are, you can also loop in yaml instead of biceps, we will show you this alternative today as well. 
 
 ### Configure access to storage accounts 
 
@@ -97,7 +98,7 @@ Now what if you have a library of functioning ARM Templates that you want to tur
 az bicep decompile --file {FILE}.json
 ```
 
-However, the Bicep file might need revisions to be optimal.
+However, the Bicep file might need some revisions to be optimal - but it still gives us a good place to start instead of coding everything from scratch again.
 
 ## Virtual Machine : 
 
