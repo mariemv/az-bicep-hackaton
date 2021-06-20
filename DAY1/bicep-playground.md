@@ -31,14 +31,14 @@ This playground offers a preconfigured environment to experiment with bicep temp
 This is to show that Microsoft Docs now contain a tab for bicep template next to the ARM template one for most resources. 
 </br>
 
-[Bicep Resource Group Playground Template](https://aka.ms/bicepdemo#eJxVT81qwzAMvgfyDrr5lDkpPQUGOwx2Wcto+wKe0YIhiYykHNrRd6/dYGguQt+frc9a+MQ40nXCWeHHsZtQkQXqKmYAPBwT1YEoh3mAdzCmSO72TX4r1JW1cHE8oMLZU8T0jj7hipJLll/xHKIGmkvihEILe4QvpiXCBac4Os1hLkpZVoc5BM8k9KdvJSt2Y5GPXbvrmnbftJ1J//7XFcCcqvSlUiZG8i4f0q9lMqVukH613/OInA5nDfjC3h9KrWJC)
+[Bicep Resource Group Playground Template](https://aka.ms/bicepdemo#eJxtj81qwzAMx+9+Ct1y6pKWnQyDMVZ6acvY9gKupwVDGhlJKXQj7z6lTShhPRj8/7CsX1nCOwp1HBE2TF2Gt8DhiIos4FweBHC9NwtEObU1PEFRjEH42VK842uo1+3pfvCKuaEzfr2cZ7nTwDXqR6SMgyPdQSKnrIlaS8t/e37iMTdBERxPwXS5FopdikxC3/owPZVyVpHnVbVaLqrHRbUs7NNfB9AaqR+JTTYUw7CCv7KaYwjiL1UAg/Qj7EXf2Pwc1dLeTmajY004Tuhd/wczSn7S)
 
-Copy this template into your host, to deploy, run : 
+Copy this template into your host, to deploy replace {VALUES} with the one that are relevant to you and run : 
 ```
 az deployment sub create \
 --template-file "{PATH_TO_FILE}" \
 --name "deploy-rg-$RANDOM" \
---location "AZURE_LOCATION" 
+--location "{AZURE_LOCATION}" 
 ```
 
 ## Deploy Storage Account(s)
