@@ -59,8 +59,7 @@ az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_
 ```
 
 ## Deploy Virtual Machine 
-Walkthough outside of the Playground with VS code extension -  
-
+- Bicep extension on VS code demo
 
 ## Decompile
 
