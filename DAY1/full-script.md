@@ -10,9 +10,9 @@ Everything that can be done with ARM can now be done in Bicep. Well, everything 
 
 Today the session will be split in two main parts : first we are going to use this bicep/arm sandbox to get started with Azure Bicep and get used to its syntax, we will deploy a couple of resource in Azure using the templates we will generate here, and answer all of your questions as we go. For those of you familiar with Bicep already this might be a bit redundant but please bear with us for a moment !</br> 
 
-After these firsts experiences and deployments, we will get started on using Azure Bicep in a CI/CD pipeline, show you the structure we recommend you to use when working on your Bicep projects and depending on how this afternoon goes with might start with AKS - else AKS integration with Bicep will be our main topic on Friday. </br> 
+After these firsts experiences and deployments, we will get started on using Azure Bicep in a CI/CD pipeline and show you the structure we recommend you to use when working on your Bicep projects. We will deploy Azure Resources with that pipeline (Keyvaults, VNet, a VM to interact with the cluster...) and depending on how this afternoon goes with might start with AKS - else AKS integration with Bicep will be our main topic on Friday. </br> 
 
-Let's take a couple of minutes to get ready to go: I will send you the link to the sandbox, please open it and keep another tab open with an azure subscription with either a cloudshell prompt set to bash open or your own terminal connected to the subscription you will work with like so (start a terminal). I will use a VM connected to the subscription as it will be easier to read on screen, if you choose to do so as well follow the instructions here to install bicep on linux : https://github.com/Azure/bicep/blob/main/docs/installing.md#linux </br> 
+Let's take a couple of minutes to get ready to go: I will send you the link to the sandbox, please open it and keep another tab open with the Azure Portal you will work with and either a cloudshell prompt set to bash open or your own terminal connected to the subscription you want to target. I will use a VM connected to the subscription as it will be easier to read on screen. Cloudshell is always running the lastest version of Azure CLI and the Bicep CLI should be ready to go, </br> 
 
 While all those who want to follow up with us are getting ready, do you have any first impressions you want to share or questions about the planning ? Ryan do you want to add something ? </br> 
 
@@ -87,6 +87,7 @@ Now for the CI/CD integration we tend to use yaml loops for XY reason **(ASK RYA
 
 ### Configure access to storage accounts 
 
+Using the same template, we can also configure access to storage account by adding VNet rules or IP rules after the resources are created. Just to show you that it works in a similar way to ARM, i am going to restrict access to my 3 storages and allow access from my IP address only. [RUN SECURE STORAGE]. I can access them, my IP is listed, now Ryan can you go on Azure and see if you can access this from your address ? [NOPE, hopefully, but we have to test it]. 
 
 ## Decompile ARM template
 
