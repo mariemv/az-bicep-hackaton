@@ -9,7 +9,7 @@ TODO : Make this public as we will refer to this document during the walkthough
 ```
 az -v
 ```
-> To install manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
+> You can upgrade your Azure CLI to the latest version to use bicep on linux. To install manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
 
 
 
