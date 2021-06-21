@@ -58,7 +58,7 @@ az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_
 az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_NAME}-$RANDOM" --resource-group {YOUR_RG_NAME}
 ```
 
-[Limit Access to Storage Accounts](https://aka.ms/bicepdemo#eJyVUsFqGzEQvRv8D3NTc0jWySGQhUIXDM2hTcAOuQQTtNrZolqRxEhy2Rb/eyVLSreml+qwGt68N/NmtE0DHRGfwIzgvCH+DYELYYL2oPkbuuXCcuJvNdnlnAN+Un2El+UCgAE7v3bLRZVKuwkKwfTfUfgo+ZVIAAeuArbAIvkYkcRvGlijVWYChwckrkAOqL0UMdoWd9XBckHoTCCBZ942BXbAvkpBxpnRXxV1czbGp5vV9d3l6vZydc3SMKOhWu0hTg9Snw/eZvtpN+2cmkBlBPfS6Baqtc9kgv1wcVUziWXJWCQvsdYCcMFaQ97de2/dE/FxlOJRq6kFTwEzJ74KOvckkeLO7o1nGUYtaLK5a6kGsMdpe+rf/mMHrLIc0kGKmY10emX6v4DUgvcKh7mZdI5/wlEq/E9RCcql0f8wtO+EmrvpJ8tdBFj3MxBui913//m/ivmXWeMMVmAHUMMBRx6U70TeFVujntjMxOmzlzpaZmVTzzcngtuHd1P53SOB64HT8Ppls2VFfdz9BpVD8/Q=) **ASK RYAN IF THIS IS WHAT HE MEANT** and if he can pop in, try to access my storage and get denied to show it works. 
+[Limit Access to Storage Accounts](https://aka.ms/bicepdemo#eJyVUsFqGzEQvRv8D3NTc0jWySGQhUIXDM2hTcAOuQQTtNrZolqRxEhy2Rb/eyVLSreml+qwGt68N/NmtE0DHRGfwIzgvCH+DYELYYL2oPkbuuXCcuJvNdnlnAN+Un2El+UCgAE7v3bLRZVKuwkKwfTfUfgo+ZVIAAeuArbAIvmYyE0Da7TKTODwgMQVyAG1lyJG22Kttl8uCJ0JJPDM2KbADthXKcg4M/qrom7OZvh0s7q+u1zdXq6uWZpkNFSrPcTRQerzqdvsPS2mnVMTqIzgXhrdQrX2mUywHy6uaiaxLBmL5CXWWgAuWGvIu3vvrXsiPo5SPGo1teApYObEJ0HnniRSXNi98SzDqAVNNnct1QD2OG1P/dt/7IBVlkM6SDGzkU6vTP8XkFrwXuEwN5PO8U84SoX/KSpBuTT6H4b2nVBzN/1kuYsA634Gwm2x++4//1Qx/zJrnMEK7ABqOODIg/KdyLtia9QTm5k4ffZSR8usbOr55kRw+/BuKr97JHA9cBpev2y2rKiPu9+Jp/O9) 
 
 ```
 az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_NAME}-$RANDOM" --resource-group {YOUR_RG_NAME}
