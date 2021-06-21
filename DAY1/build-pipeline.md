@@ -28,13 +28,13 @@ Be careful with indentation as copy/pasting and formatting can be tricky and pay
       azLoc: $(azLoc)
       rgNames: [
         "hack-network-rg",
-        "$(prefix)-aks-rg", 
-        "$(prefix)-vm-kv-rg", 
-        "$(prefix)-aks-vm-rg", 
-        "$(prefix)-aks-str-rg", 
-        "$(prefix)-db-rg", 
-        "$(prefix)-srv-kv-rg", 
-        "$(prefix)-db-kv-rg" 
+        "$(prefix)-aks-rg",
+        "$(prefix)-vm-kv-rg",
+        "$(prefix)-aks-vm-rg",
+        "$(prefix)-aks-str-rg",
+        "$(prefix)-db-rg",
+        "$(prefix)-srv-kv-rg",
+        "$(prefix)-db-kv-rg"
         ]
  ```
  
@@ -54,7 +54,7 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
       kvNamesAndRGs: [
         "$(prefix)-srv-kv:$(prefix)-srv-kv-rg",
         "$(prefix)-db-kv:$(prefix)-db-kv-rg",
-        "$(prefix)-vm-kv:$(prefix)-vm-kv-rg",
+        "$(prefix)-vm-kv:$(prefix)-vm-kv-rg"
         ]
 
       azTenantId: $(azTenantId)
@@ -75,7 +75,7 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
         {"tenantId":"$(azTenantId)","objectId":"a1874132-7d5d-4ccd-82fc-2d0ac4450ca5","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"c1b0f2d0-1cb9-4970-945a-5440e33c7efb","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"a6a9dc79-2821-4d9d-a4c9-cb08348c5e30","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
-        {"tenantId":"$(azTenantId)","objectId":"3f4d96c4-a937-4f6a-9f02-b1d6721255b0","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
+        {"tenantId":"$(azTenantId)","objectId":"3f4d96c4-a937-4f6a-9f02-b1d6721255b0","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}}
       ]'
       kvIpRules: '[
         {"value": "20.71.230.186"},
