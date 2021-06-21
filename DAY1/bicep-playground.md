@@ -78,5 +78,5 @@ az bicep decompile --file {FILE}.json
 ## Keyvault(s)
 - Using the tools previously mentionned, it is your turn to use the available resources and deploy one or several keyvault(s) in Azure from scratch. 
 - Please deploy to the resource group created earlier
-- Make it as simple or complexe as you wish, depending on how comfortable you are now with the technology
+- Make it as simple or complexe as you wish (parameters, loops, limited access,...) , depending on how comfortable you are now with the technology 
 - We will remain available to help you in the process and take some time for a quick feedback 
