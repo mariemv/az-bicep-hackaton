@@ -12,7 +12,7 @@ Good news is : almost everything that can be done with ARM can now be done with 
 
 ## Today's planning : 
 
-So what are we going to do today ? Today's session will be split in two main parts : first we are going to use the bicep sandbox I just showed you to get started with Azure Bicep and get used to its syntax, we will deploy a couple of resources in Azure using the templates we will generate here in this sandbox - you'll get a link in a second- and of course we will answer all of your questions as we go. For those of you familiar with Bicep or even ARM already this part might be a bit redundant but please bear with us for a moment ! At the end of this first part, we will ask you to deploy a resource from scratch using the tools we will provide you in a minute. </br> 
+So what are we going to do today ? Today's session will be split in two main parts : first we are going to use the bicep sandbox I just showed you to get started with Azure Bicep and get used to its syntax, we will deploy a couple of resources in Azure using the templates we will generate here in this sandbox - you'll get a link in a second- and of course we will answer all of your questions as we go. For those of you familiar with Bicep or even ARM already this part might be a bit redundant but please bear with us for a moment as things will quickly get more complicated ! At the end of this first part, we will ask you to deploy a resource from scratch using the tools we will provide you in a minute. </br> 
 
 For the second part of today's session, we will get started on using Azure Bicep in a CI/CD DevOps pipeline and show you the structure we recommend you to use when working on your Bicep projects. We will deploy Azure Resources with that pipeline (Keyvaults, VNet, a VM to interact with the cluster, storage accounts and more...) and depending on how this afternoon goes with might start with AKS - else AKS integration with Bicep will be our main topic on Friday. </br> 
 
@@ -22,67 +22,26 @@ While all those who want to follow up with us are getting ready, do you have any
 
 ## Deploy a resource group 
 
-Ok now that we are hopefully all set, let's start deploying ! I suggest you to try and follow along and let us know if you encounter any issue or if you have any remark. We can start with the basics and create a simple resource group. I know already that this is not in the playground 101 templates list here, but it gives me a chance to show you something: if you go to the Microsoft official template reference documentation, next to the ARM template tab, you can now have access to the corresponding bicep template as you can see on the first link here (OPEN MICROSOFT LINK AND SHOW THE TAB) 
+Ok now that we are hopefully all set, let's start deploying ! I suggest you to try and follow along and let us know if you encounter any issue or if you have any remark. We can start with the basics and create a simple resource group. I know already that this is not in the playground 101 templates list here, but it gives me a chance to show you something: if you go to the Microsoft official template reference documentation (OPEN MICROSOFT LINK AND SHOW THE TAB) , next to the ARM template tab, you can now have access to the corresponding bicep template for this resource. 
+
+We can copy the template into our sandbox and see how we can tune it. (COPY TEMPLATE). It looks like it does not compile and we are indeed missing a thing or two. First, we need to add the targetScope we traditionnaly had in ARM $schema (TYPE targetScope = 'subscription'). This is better. Keep in mind that unless specified otherwise, Bicep will always assume that you are deploying at the resource group scope - which will obviously not work here. We can also take a moment to notice that all string values must be enclosed between single quotes, double quotes will not work here (SHOW THAT IT FAILS). </br>
+
+So, In order to declare a resource to deploy in Azure, we first need to declate the object type of "resource" (HIGHLIGHT) and then provide a symbolic name for this resource (HIGHLIGHT) that we will use if we need to reference it later. Then comes the resource provider "Microsoft.Resource" (HIGHLIGHT) followed by the the provider type and api version (HIGHLIGHT). All of this has to be enclosed between single quotes as well. The resource is then defined with with different properties between curly braces. 
+
 </br> 
 
-We can copy the template into our sandbox and see how we can tune it. First, we can see that all string values must be enclosed between single quotes, double quotes will not work here (show that it fails). After setting our values, we are still missing something, and that is the target scope that we have in ARM schemas (ADD TARGET SCOPE). We need to add this targetscope for Resource Groups because unless specified otherwise, Bicep will assume that templates are to be deployed at a resource group scope. This will not work here for obvious reasons. 
+Here I could hard-code my values like so (HARD CODE NAME AND LOC) but similar to arm, we can edit this template to use parameters like so (ADD PARAMETERS). We will also comment the template for readability : comments work in a way similar to other languages, with two forward slashes for single line. I will keep this template for myself and now invite you to click on the link here on github, add your own parameters and deploy it using the command below to test your set up and have a resource group in place for future deployment.
 
-</br> 
-
-Now the template compiles properly, we can see that the resource provider, resource type and API version are here on a single single quoted line.
-
-Similar to arm, we can edit this template to use parameters like so (ADD PARAMETERS). We will also comment the template for readability : comments work in a way similar to other languages, with two forward slashes for single line. 
-
-```
-// Deployment Parameters 
-param rgName1 string = 'mvy-hack-rg-1'
-param azLoc string = 'westeurope'
-
-// Target Scope 
-targetScope = 'subscription'
-
-// Resource Group Template 
-resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-04-01' = {
-  name: rgName1
-  location: azLoc
-  tags: {
-  }
-  properties: {
-  }
-}
-```
-
-You can use to text editor of your choice to copy the template on your linux host, and edit the name parameter to include your initials. I have already created one and called mine mvy-hack-rg-1.bicep. To deploy, I will create a deployment sub called deploy-hack-rg-1.bicep, add the path to my template file and set the deployment in westeurope. 
-
-```
-az deployment sub create \
---template-file "mvy-hack-rg-1.bicep" \
---name "deploy-mvy-rg-$RANDOM" \
---location "westeurope" 
-```
-
-### Add Resource Tags 
-
-It would be best to add them when deploying, it's already in the template we get from the Microsoft docs. **ASK RYAN**
 
 ## Storage Account(s)
 
-Now that we have a resource group in place, we can start deploying resources to this resource group. You can click on the link provided on github for a single resource group and add the name parameter as you wish. Please bear in mind that storage account names can only have upper case, lowercase and numbers. 
+Now that we have a resource group in place (SHOW RESOURCE GROUP), we can start deploying resources to this resource group. You can click on the link provided on github (SHOW LINK) for a single storage and add the name parameter as you wish. This time we don't need to specifiy a target scope as the default to resource group will work for us. When chosing your parameters, please bear in mind that storage account names can only have upper case, lowercase and numbers - adding other characters like a dash for exemple will make your deployment fail. In most real environments, Storage Accounts are named using a randomly generated guid but I suppose your initals and a random rumber should work unless you are very unlucky and someone used that already.  
 
-[LINK](https://aka.ms/bicepdemo#eJyVUMtqAzEMvO9X6Ob2kGySQ6ELhQYKzaEPSEKvxfFqg4ljGckbWEr+vd5Xm0IvMdiWNaPRWHkOS2bdAFUgkVjvEbQxVPsIXh9RsqBZH0fsLaVSzNbv4QGUgizLc3jC4KgBwROydmBL9NGaFG0GxWWvKBmjUM0GR70BWA9pAfVqDZNQFadDcf6XKo+L2fx+MrubzOYqefjKoDNaXFpMOUdGR0u+gLHnM1Mdbm6nI5JIgSkgR4tSdEIAUodAHGUVY5At66qy5t27poDINXaUNB4U2VrkAtSKouqy6A03oe/YSwEcsNl0rYt//qUGkiCfrPl10K6do93lu5XXO4flhY12nX+iyjq8pqK/27PdB+sTUQ3OPhatNznUo2A/3wRrX2ouP1/WG9VVnr8BNxexow==)
-
-In this case we do not need the target scope parameter as we will specify the resource group in the deployment command. I will use the RG I just created and I suggest you do the same and use yours :
-
-az deployment group create \
---name "deploy-mvy-str-$RANDOM" \
---resource-group "mvy-hack-rg-1" \
---template-file "mvy-str-1.bicep"
+This time the deployment group created is targeted at the resource group we created previously as you can see if the command I provided on github (SHOW LINK). Other deployment options include management group or tenant but unless requested I don't think we will go that route today. (CAT STORAGE, DEPLOY)
 
 ### Deploy multiple storage accounts 
 
-When it comes to loops in Bicep there are several options. Bicep implemented native loops recently, we can do this as follows : 
-
-[LINK](https://aka.ms/bicepdemo#eJyVkE1rwzAMhu/5Fbp5O7RpexgsMFhhsB72AW3ZZZThOsowdS0jO4Uw+t9n52MLZZcZYjvSq1ePnOewZJYNUAU+EMtPBKkU1TaAlUf0mZMsj0Nu2aU8yLboDt4zACFG2y7L8hwe0BlqwOMJWRrQJdqgVbxt+h6DUcboqWaFFx3WfdiDeNaKyVMVpn1xfgFzv5jNbyezm8lsLhJSRTy4vcQRQNtL/AK+Im2arxgrY8yQkkGTLWAAe2Sq3dX1dMhEkWNyyEFjbwTga+eIg1+F4PyWZVVp9WpNU0DgGltJfFX0fquRCxArCqKNolXcuK5jZwVwwGbTti7+GF70Io980uqXIK29of34P9nLvcFyhJHW+edWaYP/qejOtKfvoG0Uip7sbZHY/KEeDLv3jWlpS8nlx9N6I9rK8+4bdwLDQQ==)
+Now that we have a storage account in place, what if we want to add two mores using the same template ? We can edit our template to loop through an array of names and create a storage for each like so (OPEN SINGLE TEMPLATE, EDIT TO LOOP). If you did not have time to update your template as I was updating mine, I again provided a blank template for you to have a look at and fill in with your custom values. Use the deployment group create command like before. (DEPLOY, WAIT A BIT, REFRESH TO SHOW) 
 
 Now depending on who you are working with and what their requirements are, you can also loop in yaml instead of biceps, we will show you this alternative today as well. 
 
