@@ -37,7 +37,7 @@ Be careful with indentation as copy/pasting and formatting can be tricky and pay
 
 Next, paste the section below in your yaml file and update kvIpRules Parameter to include your home IP address. Your objectId should already be included in the keyvault access policies.
 
-```
+```yaml
   # Deploy Keyvaults.
   - template: /templates/resources/deploy-keyvaults.yaml
     parameters:
@@ -85,7 +85,7 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
 
 To deploy the Virtual Machine you will later use to interact with a private AKS cluster, add the section below to the yaml pipeline. You may can the adminusername parameter if you want to. 
 
-```
+```yaml
   # Deploy VM.
   - template: /templates/resources/deploy-vm.yaml
     parameters:
@@ -108,7 +108,7 @@ To deploy the Virtual Machine you will later use to interact with a private AKS 
 
 Next, add the following section to your .yaml pipeline to deploy a storage account and a fileshare. 
 
-```
+```yaml
   # Deploy Storage Account.
   - template: /templates/resources/deploy-storage.yaml
     parameters:
