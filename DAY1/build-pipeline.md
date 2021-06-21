@@ -1,6 +1,6 @@
 # Building Azure Resources with Azure Devops CI/CD Pipline
 
-1. First, browse to the repository with your name in the Devops Project [BicepHackaton](https://dev.azure.com/basefarm/BicepHackaton
+1. First, browse to the repository with your name in the Devops Project [BicepHackaton](https://dev.azure.com/basefarm/BicepHackaton)
 2. Clone this repository in Vistual Studio Code 
 3. Please insure that the deployedby and prefix variables included in your starter repository are correct. </br>
 
