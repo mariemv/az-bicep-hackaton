@@ -5,18 +5,25 @@ TODO : Make this public as we will refer to this document during the walkthough
 
 To follow along, you will need : </br>
 - A tab with this document open
-- Another with your Azure Subscription 
+- Another tab open and connected to the PS Bicep Hackaton Azure Subscription
 
 To deploy to you Subscription you will need : </br>
-- The azure portal integrsted cloudshell promp (set to bash) - Bicep should be ready to go
+- EITHER The azure portal integrated cloudshell promp (set to bash) - Bicep should be ready to go
 - OR your own host terminal connect to the subscription you are targeting 
 
-> If you already have the latest version of Az CLI installed (v2.20.0 or later), the Bicep CLI will automatically be installed when a command that depends on it is executed.
+> If you already have the latest version of Az CLI installed (v2.20.0 or later), the Bicep CLI will automatically be installed when a command that depends on it is executed, you can check with.
 ```
 az -v
 ```
-> You can upgrade your Azure CLI to the latest version to use bicep on linux. 
-> To install bicep manually, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
+> You can upgrade your Azure CLI to the latest version to use bicep on linux with the following command if you are currently running version 2.11.0 or later 
+```
+az upgrade
+``` 
+> If you are currently running a version of Azure CLI prior to 2.11.0, you can update to lastest by reinstalling the client with : 
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+> Should you need to install bicep manually at some point, see instructions [here](https://github.com/Azure/bicep/blob/main/docs/installing.md#options-for-installing-the-bicep-cli)
 
 
 
@@ -58,7 +65,7 @@ az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_
 az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_NAME}-$RANDOM" --resource-group {NAME_OF_RG_ABOVE} 
 ```
 
-## Deploy Virtual Machine 
+## Generating templates with the Bicep extension for Visual Studio Code 
 - Bicep extension on VS code demo
 
 ## Decompile
@@ -66,3 +73,9 @@ az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_
 ```
 az bicep decompile --file {FILE}.json
 ```
+
+## Keyvault(s)
+- Using the tools previously mentionned, it is your turn to use the available resources and deploy one or several keyvault(s) in Azure from scratch. 
+- Please deploy to the resource group created earlier
+- Make it as simple or complexe as you wish, depending on how comfortable you are now with the technology
+- We will remain available to help you in the process and take some time for a quick feedback 
