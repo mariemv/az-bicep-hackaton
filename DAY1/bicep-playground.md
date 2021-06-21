@@ -70,6 +70,7 @@ az deployment group create --template-file "{PATH_TO_FILE}" --name "{DEPLOYMENT_
 
 ## Decompile
 
+If you already have working ARM templates for your resources, you can decompile them to have a starter Bicep template. Be careful however that the decompiled file needs to be adapted in most case : resource symbolicname, variables and sometimes parameter do not decompile in an adequate way. 
 ```
 az bicep decompile --file {FILE}.json
 ```
