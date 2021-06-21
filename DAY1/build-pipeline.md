@@ -1,7 +1,7 @@
 # Building Azure Resources with Azure Devops CI/CD Pipline
 
 1. First, browse to the repository with your name in the Devops Project [BicepHackaton](https://dev.azure.com/basefarm/BicepHackaton)
-2. Clone this repository in Vistual Studio Code 
+2. Clone this repository in Vistual Studio Code - we strongly suggest that you install the Bicep extension for VS code if you have not already
 3. Please insure that the deployedby and prefix variables included in your starter repository are correct. </br>
 
 
@@ -9,7 +9,7 @@ Each attendee is provided with a starter repository. This starter repostory incl
 - A starter pipeline.yaml file in which custom variables need to be set
 - 6 Bicep templates for deploying azure resources
 - 6 resources deploy.yaml file for deploying the Bicep templates
-
+ 
 </br>
 
 Each job will be explained and commented as we build the pipeline.yaml file using the following sections. </br>
@@ -129,6 +129,9 @@ Next, add the following section to your .yaml pipeline to deploy a storage accou
       strMinimumTlsVersion: TLS1_2
  ``` 
  
+ ## Deploy VNET 
+ 
+ We have not included a VNET deployment as part of this session as a vnet along with a subnet for each attendee was put in place as part of the preparations for the hackaton, however a bicep template as well as a yaml deployment job for a vnet + subnet have been included in your repositories as an exemple that we will review and comment. 
  
  ## Clean-up 
  
