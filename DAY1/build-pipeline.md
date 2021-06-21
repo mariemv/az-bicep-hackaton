@@ -1,8 +1,16 @@
- # Building Azure Resources with Azure Devops CI/CD Pipline
+# Building Azure Resources with Azure Devops CI/CD Pipline
+
  
-- First, browse to the repository with your name in the Devops Project [BicepHackaton](https://dev.azure.com/basefarm/BicepHackaton
-- Clone this repository in Vistual Studio Code 
-- Please insure that the deployedby and prefix variables included in your starter repository are correct. </br>
+1. First, browse to the repository with your name in the Devops Project [BicepHackaton](https://dev.azure.com/basefarm/BicepHackaton
+2. Clone this repository in Vistual Studio Code 
+3. Please insure that the deployedby and prefix variables included in your starter repository are correct. </br>
+
+
+Each attendee is provided with a starter repository. This starter repostory inclues : </br>
+
+- A starter pipeline.yaml file in which custom variables need to be set
+- 6 Bicep templates for deploying azure resources
+- 6 resources deploy.yaml file for deploying the Bicep templates
 
 </br>
 
