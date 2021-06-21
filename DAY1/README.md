@@ -11,13 +11,14 @@
    * Configure access to Storage Acccounts 
    * Decompiling json files
    * Visual code extension and template creation - VM deployment
+   * Challenge : resource creation from scratch 
 
-3. Getting started with Bicep in a CI/CD pipeline 
-   * Service connection, devops agent configuration (for Private Clusters)
+3. Getting started with Bicep in a CI/CD pipeline
+   * Devops Project, Repository, pipeline setup  
    * Resource Groups deployment
+   * Storage Account and Fileshare Deployment
    * VNET deployment
    * Keyvault deployment
    * VM deployment 
-   * Storage Account Deployment 
 
-4. Presentation of what is going to happen on Friday, Q&A, etc
+4. Recap, overview of Friday's program, Q&A and requests
