@@ -83,7 +83,8 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
         {"value": "213.47.155.102"}
       ]'
       kvVirtualNetworkRules: '[
-        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/$(aksSubnet)"},
+        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/hack-snet-1"},
+        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/$(aksSubnet)"}
       ]'
 ```
 
