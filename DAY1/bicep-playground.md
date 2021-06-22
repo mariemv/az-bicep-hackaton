@@ -7,7 +7,7 @@ To follow along, you will need : </br>
 - Another tab open and connected to the PS Bicep Hackaton Azure Subscription
 
 To deploy to your Subscription you will need : </br>
-- EITHER The azure portal integrated cloudshell promp (set to bash) - Bicep should be ready to go
+- EITHER The azure portal integrated cloudshell promp (set to bash) - Bicep should be ready to go, we recommand you use this today.
 - OR your own host terminal connect to the subscription you are targeting 
 
 > If you already have the latest version of Az CLI installed (v2.20.0 or later), the Bicep CLI will automatically be installed when a command that depends on it is executed, you can check with.
