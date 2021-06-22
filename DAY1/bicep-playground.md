@@ -6,7 +6,7 @@ To follow along, you will need : </br>
 - A tab with this document open
 - Another tab open and connected to the PS Bicep Hackaton Azure Subscription
 
-To deploy to you Subscription you will need : </br>
+To deploy to your Subscription you will need : </br>
 - EITHER The azure portal integrated cloudshell promp (set to bash) - Bicep should be ready to go
 - OR your own host terminal connect to the subscription you are targeting 
 
