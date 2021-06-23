@@ -19,7 +19,7 @@ Be careful with indentation as copy/pasting and formatting can be tricky and pay
  On your starter repository, replace the existing "Deploy Resource Groups" job with the following : 
  
  ```yaml
-   # Deploy Resource Groups.
+  # Deploy Resource Groups.
   - template: /templates/resources/deploy-resource-groups.yaml
     parameters:
       env: $(env)
@@ -56,7 +56,6 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
         "$(prefix)-db-kv:$(prefix)-db-kv-rg",
         "$(prefix)-vm-kv:$(prefix)-vm-kv-rg"
         ]
-
       azTenantId: $(azTenantId)
       kvAccessPolicies: '[
         {"tenantId":"$(azTenantId)","objectId":"f09e647a-7f78-4be7-9766-34c65cc21960","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
@@ -75,16 +74,9 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
         {"tenantId":"$(azTenantId)","objectId":"a1874132-7d5d-4ccd-82fc-2d0ac4450ca5","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"c1b0f2d0-1cb9-4970-945a-5440e33c7efb","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"a6a9dc79-2821-4d9d-a4c9-cb08348c5e30","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
-        {"tenantId":"$(azTenantId)","objectId":"3f4d96c4-a937-4f6a-9f02-b1d6721255b0","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}}
-      ]'
-      kvIpRules: '[
-        {"value": "20.71.230.186"},
-        {"value": "84.115.208.19"},
-        {"value": "213.47.155.102"}
-      ]'
-      kvVirtualNetworkRules: '[
-        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/hack-snet-1"},
-        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/$(aksSubnet)"}
+        {"tenantId":"$(azTenantId)","objectId":"3f4d96c4-a937-4f6a-9f02-b1d6721255b0","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
+        {"tenantId":"$(azTenantId)","objectId":"0a266bb2-7af5-4781-a5b0-b26c1fa61a20","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
+        {"tenantId":"$(azTenantId)","objectId":"0a266bb2-7af5-4781-a5b0-b26c1fa61a20","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}}
       ]'
 ```
 
@@ -96,6 +88,8 @@ To deploy the Virtual Machine you will later use to interact with a private AKS 
   # Deploy VM.
   - template: /templates/resources/deploy-vm.yaml
     parameters:
+      env: $(env)
+      deployedBy: $(deployedBy)
       serviceConnection: $(serviceConnection)
       azLoc: $(azLoc)
       vmKvName: $(prefix)-vm-kv
@@ -119,6 +113,8 @@ Next, add the following section to your .yaml pipeline to deploy a storage accou
   # Deploy Storage Account.
   - template: /templates/resources/deploy-storage.yaml
     parameters:
+      env: $(env)
+      deployedBy: $(deployedBy)
       serviceConnection: $(serviceConnection)
       azLoc: $(azLoc)
       strRgName: $(prefix)-aks-str-rg
@@ -136,4 +132,4 @@ Next, add the following section to your .yaml pipeline to deploy a storage accou
  
  ## Clean-up 
  
- - To be discussed during the hackaton 
+ - Resources will be cleaned up by the Hackaton host and redeployed in advance for day 2.
