@@ -41,7 +41,7 @@ Be careful with indentation as copy/pasting and formatting can be tricky and pay
 
 ## Deploy Keyvault 
 
-Next, paste the section below in your yaml file and update kvIpRules Parameter to include your home IP address. Your objectId should already be included in the keyvault access policies.
+Next, paste the section below in your yaml file and update kvIpRules Parameter to include your home IP address. Your objectId should already be included in the keyvault access policies. Note that we are giving access to the keyvault to the subnet where the devops self-hosted agent resides in addition to your own subnet. The first object ID listed in kvAccessPolicies is also the object id of the service principal used for the service connection. 
 
 ```yaml
   # Deploy Keyvaults.
