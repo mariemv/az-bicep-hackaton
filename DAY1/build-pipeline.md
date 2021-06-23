@@ -77,6 +77,15 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
         {"tenantId":"$(azTenantId)","objectId":"3f4d96c4-a937-4f6a-9f02-b1d6721255b0","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"0a266bb2-7af5-4781-a5b0-b26c1fa61a20","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}}
       ]'
+      kvIpRules: '[
+        {"value": "20.71.230.186"},
+        {"value": "84.115.208.19"},
+        {"value": "213.47.155.102"}
+      ]'
+      kvVirtualNetworkRules: '[
+        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/hack-snet-1"},
+        {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/$(aksSubnet)"}
+      ]'
 ```
 
 ## Deploy Virtual Machine
