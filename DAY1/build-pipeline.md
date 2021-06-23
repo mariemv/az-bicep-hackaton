@@ -75,7 +75,6 @@ Next, paste the section below in your yaml file and update kvIpRules Parameter t
         {"tenantId":"$(azTenantId)","objectId":"c1b0f2d0-1cb9-4970-945a-5440e33c7efb","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"a6a9dc79-2821-4d9d-a4c9-cb08348c5e30","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"3f4d96c4-a937-4f6a-9f02-b1d6721255b0","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
-        {"tenantId":"$(azTenantId)","objectId":"0a266bb2-7af5-4781-a5b0-b26c1fa61a20","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}},
         {"tenantId":"$(azTenantId)","objectId":"0a266bb2-7af5-4781-a5b0-b26c1fa61a20","permissions":{"keys":[],"secrets":["Get","List","Set"],"certificates":[]}}
       ]'
 ```
