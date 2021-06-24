@@ -203,8 +203,63 @@ Next, add the following stage and task for postgres deployment. We will first de
       postgreSqlServerPublicNetworkAccess: Enabled
 ```
 
+Next, we will add firewall rules to the PostgreSQL Server. Please add your own ip address following the syntax in place for firewall rules below : 
+```
+# Deploy PostgreSQL Server Firewall Rules.
+  - template: /templates/resources/deploy-postgresql-server-firewall-rules.yaml
+    parameters:
+      env: $(env)
+      serviceConnection: $(serviceConnection)
+      postgreSqlServerName: $(prefix)-k8s-db
+      postgreSqlServerResourceGroupName: $(prefix)-db-rg
+      postgreSqlServerFirewallRules: [
+      "external_access_ryani:213.47.155.102:213.47.155.102",
+      "external_access_mariey:84.115.208.19:84.115.208.19",
+      "devops_agent_access:20.71.230.186:20.71.230.186"
+      ]
+```
+Next, we will deploy a database for the demo application : 
 
+```
+  # Deploy PostgreSQL Server Database.
+  - template: /templates/resources/deploy-postgresql-server-db.yaml
+    parameters:
+      serviceConnection: $(serviceConnection)
+      postgreSqlServerName: $(prefix)-k8s-db
+      postgreSqlServerResourceGroupName: $(prefix)-db-rg
+      postgreSqlServerKeyVaultName: $(prefix)-srv-kv
+      postgreSqlServerDatabaseKeyVaultName: $(prefix)-db-kv
+      postgreSqlServerAdministratorLogin: adminuser
+      postgreSqlServerDbName: demoappdb
+```
 
+Finally, add the deploy app stage and job to get a basic application running in the kubernetes cluster.
+
+```
+# Deploy Apps
+- stage: deploy_apps
+  displayName: Deploy Apps
+  jobs:
+
+  # Deploy App to Kubernetes
+  - template: /templates/resources/deploy-demo-app.yaml
+    parameters:
+      serviceConnection: $(serviceConnection)
+      aksRgName: $(prefix)-aks-rg
+      aksClusterName: $(prefix)-az-k8s
+      namespace: demoapp
+      postgreSqlServerName: $(prefix)-k8s-db
+      postgreSqlServerResourceGroupName: $(prefix)-db-rg
+      postgreSqlServerDbName: demoappdb
+      postgreSqlServerKeyVaultName: $(prefix)-srv-kv
+      postgreSqlServerDatabaseKeyVaultName: $(prefix)-db-kv
+      demoAppTagName: demoapp/spring-boot-app
+      azPostgresSrvNameSecret: az-postgres-server-name
+      azPostgresDbNameSecret: az-postgres-db-name
+      azPostgresDbUserNameSecret: az-postgres-db-username
+      azPostgresDbPasswordSecret: az-postgres-db-password
+      nodeResourceGroupName: $(prefix)-aks-nodes-rg
+```
 
 
 
