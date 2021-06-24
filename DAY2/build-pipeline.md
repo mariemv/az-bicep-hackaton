@@ -1,15 +1,17 @@
 # Building Azure Resources with Azure Devops CI/CD Pipline - Part 2 
 
-If you still have Tuesday's repository saved on your computer, pull the latest changes. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. 
+If you still have Tuesday's repository saved on your computer, pull the latest changes. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. General tips : 
+
+- Be EXTRA careful with indentation and extra white spaces
+- Be patient - as we experienced Friday, build can fail for reasons beyond our control. 
 
 ## Recap from Tuesday 
 
-At this point, your pipeline should look like this : 
-
-
-# Build is manually triggered from the [main] branch in the Repo.
+At this point, your pipeline should look like this with suche {VALUES} replaced with your custom ones : 
 
 ```yaml
+# Build is manually triggered from the [main] branch in the Repo.
+
 trigger:
 - none
 
@@ -93,7 +95,8 @@ stages:
       kvIpRules: '[
         {"value": "20.71.230.186"},
         {"value": "84.115.208.19"},
-        {"value": "213.47.155.102"}
+        {"value": "213.47.155.102"},
+        {"value": "YOUR_IP"}
       ]'
       kvVirtualNetworkRules: '[
         {"id": "/subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/hack-snet-1"},
@@ -134,3 +137,36 @@ stages:
       strSupportHttpsTrafficOnly: true
       strMinimumTlsVersion: TLS1_2
 ```
+
+## Deploy AKS 
+
+Add the following section to deploy a [PRIVATE/PUBLIC ?] AKS cluster. This deployment can take up to 15min to run.
+
+```
+# Deploy AKS 
+- stage: deploy_aks
+  displayName: Deploy AKS
+  jobs:
+
+  # Deploy AKS.
+  - template: /templates/resources/deploy-aks.yaml
+    parameters:
+      serviceConnection: $(serviceConnection)
+      azLoc: $(azLoc)
+      aksRgName: $(prefix)-aks-rg
+      aksClusterName: $(prefix)-az-k8s
+      aksClusterDnsPrefix: $(prefix)-az-k8s
+      aksSubnetId: /subscriptions/$(azSubId)/resourceGroups/$(aksVnetRgName)/providers/Microsoft.Network/virtualNetworks/$(aksVnetName)/subnets/$(aksSubnet)
+      aksClusterAdminUsername: linuxadmin
+      nodePoolCount: 2
+      nodePoolMaxCount: 5
+      nodePoolMinCount: 2
+      nodeResourceGroupName: $(prefix)-aks-nodes-rg
+      nodePoolEnableAutoScaling: true
+      aadEnabled: false
+      aksClusterEnablePrivateCluster: false
+      aadProfileManaged: false
+      aadProfileEnableAzureRBAC: false
+```
+
+
