@@ -169,4 +169,36 @@ Add the following section to deploy a [PRIVATE/PUBLIC ?] AKS cluster. This deplo
       aadProfileEnableAzureRBAC: false
 ```
 
+Next, add the following stage and task for postgres deployment. We will first deploy a postgresql server. 
 
+```
+# Deploy Postgres
+- stage: deploy_postgres
+  displayName: Deploy Postgres
+  jobs:
+
+  # Deploy PostgreSQL Server.
+  - template: /templates/resources/deploy-postgresql-server.yaml
+    parameters:
+      serviceConnection: $(serviceConnection)
+      env: $(env)
+      deployedBy: $(deployedBy)
+      azLoc: $(azLoc)
+      postgreSqlServerName: $(prefix)-k8s-db
+      postgreSqlServerResourceGroupName: $(prefix)-db-rg
+      postgreSqlServerKeyVaultName: $(prefix)-srv-kv
+      postgreSqlServerSkuName: GP_Gen5_2
+      postgreSqlServerSkuTier: GeneralPurpose
+      postgreSqlServerSkuCapacity: 2
+      postgreSqlServerSkuFamily: Gen5
+      postgreSqlServerBackupRetentionDays: 30
+      postgreSqlServerGeoRedundantBackup: Disabled
+      postgreSqlServerStorageMb: 51200
+      postgreSqlServerStorageAutogrow: Enabled
+      postgreSqlServerAdministratorLogin: adminuser
+      postgreSqlServerVersion: 11
+      postgreSqlServerSslEnforcement: Disabled
+      postgreSqlServerMinimalTlsVersion: TLSEnforcementDisabled
+      postgreSqlServerInfrastructureEncryption: Disabled
+      postgreSqlServerPublicNetworkAccess: Enabled
+```
