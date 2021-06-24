@@ -263,20 +263,3 @@ Finally, add the deploy app stage and job to get a basic application running in 
 ```
 
 Looking at the logs for this last deployment, you will find the external ip of the application at the end of the app deployment job. Browse to this IP address to see the application running. 
-
-
-
-
-
-
-## Installation script for the AKS VM 
-```bash
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash &&
-curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&
-sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &&
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' &&
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - &&
-sudo apt-get update &&
-sudo apt-get install postgresql &&
-sudo apt-get install postgresql-12 
-```
