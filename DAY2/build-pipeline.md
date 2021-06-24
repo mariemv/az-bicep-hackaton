@@ -142,7 +142,7 @@ stages:
 
 Add the following section to deploy a [PRIVATE/PUBLIC ?] AKS cluster. This deployment can take up to 15min to run.
 
-```
+```yaml
 # Deploy AKS 
 - stage: deploy_aks
   displayName: Deploy AKS
@@ -164,14 +164,14 @@ Add the following section to deploy a [PRIVATE/PUBLIC ?] AKS cluster. This deplo
       nodeResourceGroupName: $(prefix)-aks-nodes-rg
       nodePoolEnableAutoScaling: true
       aadEnabled: false
-      aksClusterEnablePrivateCluster: false
+      aksClusterEnablePrivateCluster: true
       aadProfileManaged: false
       aadProfileEnableAzureRBAC: false
 ```
 
 Next, add the following stage and task for postgres deployment. We will first deploy a postgresql server. 
 
-```
+```yaml
 # Deploy Postgres
 - stage: deploy_postgres
   displayName: Deploy Postgres
@@ -204,7 +204,8 @@ Next, add the following stage and task for postgres deployment. We will first de
 ```
 
 Next, we will add firewall rules to the PostgreSQL Server. Please add your own ip address following the syntax in place for firewall rules below : 
-```
+
+```yaml
 # Deploy PostgreSQL Server Firewall Rules.
   - template: /templates/resources/deploy-postgresql-server-firewall-rules.yaml
     parameters:
@@ -220,7 +221,7 @@ Next, we will add firewall rules to the PostgreSQL Server. Please add your own i
 ```
 Next, we will deploy a database for the demo application : 
 
-```
+```yaml
   # Deploy PostgreSQL Server Database.
   - template: /templates/resources/deploy-postgresql-server-db.yaml
     parameters:
@@ -235,7 +236,7 @@ Next, we will deploy a database for the demo application :
 
 Finally, add the deploy app stage and job to get a basic application running in the kubernetes cluster.
 
-```
+```yaml
 # Deploy Apps
 - stage: deploy_apps
   displayName: Deploy Apps
@@ -261,10 +262,7 @@ Finally, add the deploy app stage and job to get a basic application running in 
       nodeResourceGroupName: $(prefix)-aks-nodes-rg
 ```
 
-
-
-
-
+Looking at the logs for this last deployment, you will find the external ip of the application at the end of the app deployment job. Browse to this IP address to see the application running. 
 
 
 
@@ -272,7 +270,7 @@ Finally, add the deploy app stage and job to get a basic application running in 
 
 
 ## Installation script for the AKS VM 
-```
+```bash
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash &&
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &&
