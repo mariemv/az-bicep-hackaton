@@ -1,6 +1,6 @@
 # Building Azure Resources with Azure Devops CI/CD Pipline - Part 2 
 
-If you still have Tuesday's repository saved on your computer, pull the latest changes. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. General tips : 
+If you still have Tuesday's repository saved on your computer, pull the latest changes as we have added new files and updated others. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. General tips : 
 
 - Be EXTRA careful with indentation and extra white spaces
 - Be patient - as we experienced Friday, build can fail for reasons beyond our control. 
