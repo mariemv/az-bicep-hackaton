@@ -140,7 +140,7 @@ stages:
 
 ## Deploy AKS 
 
-Add the following section to deploy a [PRIVATE/PUBLIC ?] AKS cluster. This deployment can take up to 15min to run.
+Add the following section to deploy a private AKS cluster. This deployment can take up to 15min to run.
 
 ```yaml
 # Deploy AKS 
