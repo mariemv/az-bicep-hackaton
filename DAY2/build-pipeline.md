@@ -202,3 +202,28 @@ Next, add the following stage and task for postgres deployment. We will first de
       postgreSqlServerInfrastructureEncryption: Disabled
       postgreSqlServerPublicNetworkAccess: Enabled
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Installation script for the AKS VM 
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash &&
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl" &&
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl &&
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' &&
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - &&
+sudo apt-get update &&
+sudo apt-get install postgresql &&
+sudo apt-get install postgresql-12 
+```
