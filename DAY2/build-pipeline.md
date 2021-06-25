@@ -1,6 +1,6 @@
 # Building Azure Resources with Azure Devops CI/CD Pipline - Part 2 
 
-If you still have Tuesday's repository saved on your computer, pull the latest changes as we have added new files and updated others. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. Before we start please check and make sure that your repository now contains : 
+If you still have Tuesday's repository saved on your computer, pull the latest changes as we have added new files and updated others. Else, browse to the BicepHackaton Devops Project and clone the repository named after you and clone it in VS code. Before we start, please check and make sure that your repository now contains : 
 
 - A starter pipeline.yaml file with the "Deploy Azure Resource" we added Tuesday still in place. 
 - 9 Bicep templates for deploying azure resources
