@@ -7,7 +7,7 @@ If you still have Tuesday's repository saved on your computer, pull the latest c
 - 10 resources deploy.yaml file for deploying the Bicep templates + the demo app 
 - A demoapp folder under "templates" with two yaml files for deploying a springboot app.
 
-Be EXTRA careful with indentation and extra white spaces and please be patient - as we experienced Friday, builds can fail for reasons beyond our control. 
+Be EXTRA careful with indentation and extra white spaces when copying the section below and please be patient - as we experienced Friday, builds can fail for reasons beyond our control. 
 
 ## Recap from Tuesday 
 
