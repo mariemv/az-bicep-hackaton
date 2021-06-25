@@ -1,13 +1,17 @@
 # Building Azure Resources with Azure Devops CI/CD Pipline - Part 2 
 
-If you still have Tuesday's repository saved on your computer, pull the latest changes as we have added new files and updated others. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. General tips : 
+If you still have Tuesday's repository saved on your computer, pull the latest changes as we have added new files and updated others. Else, browse to the BicepHackaton Devops Project and clone the repository named after you. Before we start please check and make sure that your repository now contains : 
 
-- Be EXTRA careful with indentation and extra white spaces
-- Be patient - as we experienced Friday, build can fail for reasons beyond our control. 
+- A starter pipeline.yaml file with the "Deploy Azure Resource" we added Tuesday still in place. 
+- 9 Bicep templates for deploying azure resources
+- 9 resources deploy.yaml file for deploying the Bicep templates + the demo app 
+- A demoapp folder under "templates" with two yaml files for deploying a springboot app.
+
+Be EXTRA careful with indentation and extra white spaces and please be patient - as we experienced Friday, builds can fail for reasons beyond our control. 
 
 ## Recap from Tuesday 
 
-At this point, your pipeline should look like this with suche {VALUES} replaced with your custom ones : 
+At this point, your pipeline should look like this with the following values replaced with your custom ones : {YOUR_EMAIL}, {YOUR_PREFIX}, {YOUR_VNET}, {YOUR_IP}
 
 ```yaml
 # Build is manually triggered from the [main] branch in the Repo.
@@ -203,7 +207,7 @@ Next, add the following stage and task for postgres deployment. We will first de
       postgreSqlServerPublicNetworkAccess: Enabled
 ```
 
-Next, we will add firewall rules to the PostgreSQL Server. Please add your own ip address following the syntax in place for firewall rules below : 
+Next, we will add firewall rules to the PostgreSQL Server. Please **add your own ip address** following the syntax in place for firewall rules below : 
 
 ```yaml
 # Deploy PostgreSQL Server Firewall Rules.
