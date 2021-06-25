@@ -4,7 +4,7 @@ If you still have Tuesday's repository saved on your computer, pull the latest c
 
 - A starter pipeline.yaml file with the "Deploy Azure Resource" we added Tuesday still in place. 
 - 9 Bicep templates for deploying azure resources
-- 9 resources deploy.yaml file for deploying the Bicep templates + the demo app 
+- 10 resources deploy.yaml file for deploying the Bicep templates + the demo app 
 - A demoapp folder under "templates" with two yaml files for deploying a springboot app.
 
 Be EXTRA careful with indentation and extra white spaces and please be patient - as we experienced Friday, builds can fail for reasons beyond our control. 
